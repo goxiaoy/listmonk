@@ -255,6 +255,10 @@ type Campaign struct {
 	ArchiveTemplateID int             `db:"archive_template_id" json:"archive_template_id"`
 	ArchiveMeta       json.RawMessage `db:"archive_meta" json:"archive_meta"`
 
+	SlidingWindow         bool        `db:"sliding_window" json:"sliding_window"`
+	SlidingWindowDuration null.String `db:"sliding_window_duration" json:"sliding_window_duration"`
+	SlidingWindowRate     int         `db:"sliding_window_rate" json:"sliding_window_rate"`
+
 	// TemplateBody is joined in from templates by the next-campaigns query.
 	TemplateBody        string             `db:"template_body" json:"-"`
 	ArchiveTemplateBody string             `db:"archive_template_body" json:"-"`

@@ -106,6 +106,12 @@ CREATE TABLE campaigns (
     archive_template_id INTEGER REFERENCES templates(id) ON DELETE SET DEFAULT DEFAULT 1,
     archive_meta        JSONB NOT NULL DEFAULT '{}',
 
+    -- Sliding Window
+    sliding_window      BOOLEAN NOT NULL DEFAULT false,
+    sliding_window_duration TEXT,
+    sliding_window_rate INT NOT NULL DEFAULT 0,
+
+
     started_at       TIMESTAMP WITH TIME ZONE,
     created_at       TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
     updated_at       TIMESTAMP WITH TIME ZONE DEFAULT NOW()
